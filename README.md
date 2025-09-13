@@ -39,9 +39,8 @@ The device measures CO₂ levels, shows them locally on the LCD, and publishes J
 
 4. Clone this repo:
 
-      git clone https://github.com/K-IMAD/esp32-co2-monitor.git
-   
-      cd esp32-co2-monitor
+            git clone https://github.com/K-IMAD/esp32-co2-monitor.git
+            cd esp32-co2-monitor
 
 6. Open .ino in Arduino IDE, update your:
 

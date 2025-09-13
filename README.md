@@ -1,15 +1,15 @@
 ## 🌍 ESP32 CO₂ IoT Monitor
 
-      An IoT-enabled air quality monitoring system using an ESP32, two MH-Z19 CO₂ sensors, and an I²C LCD.
-      The device measures CO₂ levels, shows them locally on the LCD, and publishes JSON data to an MQTT broker (HiveMQ Cloud) for remote monitoring via a custom app or dashboard.
+An IoT-enabled air quality monitoring system using an ESP32, two MH-Z19 CO₂ sensors, and an I²C LCD.
+The device measures CO₂ levels, shows them locally on the LCD, and publishes JSON data to an MQTT broker (HiveMQ Cloud) for remote monitoring via a custom app or dashboard.
 
 ## ✨ Features
 
-      📟 Real-time CO₂ monitoring with two MH-Z19 sensors
-      🖥️ LCD display for local readout
-      ☁️ MQTT publish (over TLS) to HiveMQ Cloud
-      📱 Easy integration with mobile or web dashboards
-      📊 JSON payload for interoperability with any IoT platform
+📟 Real-time CO₂ monitoring with two MH-Z19 sensors
+🖥️ LCD display for local readout
+☁️ MQTT publish (over TLS) to HiveMQ Cloud
+📱 Easy integration with mobile or web dashboards
+📊 JSON payload for interoperability with any IoT platform
 
 ## 🛠️ Hardware Used
 
@@ -31,6 +31,7 @@
       Add ESP32 board support via Board Manager
 
 Install libraries:
+
       - WiFi.h
       - WiFiClientSecure.h
       - PubSubClient.h
@@ -62,6 +63,7 @@ When publishing, the ESP32 sends:
 
 
 Topic:
+
 sensors/esp32-co2-01/co2
 
 ## 📸 System Overview

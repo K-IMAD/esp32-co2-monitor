@@ -23,10 +23,6 @@ HardwareSerial sensor2(2);
 
 byte cmd_get_sensor[] = {0xFF, 0x01, 0x86, 0, 0, 0, 0, 0, 0x79};
 
-int greenLED = 25;
-int yellowLED = 26;
-int redLED = 27;
-
 WiFiClientSecure net;
 PubSubClient mqttClient(net);
 
@@ -60,7 +56,7 @@ void connectWiFi() {
   Serial.print("Connecting to WiFi");
   while (WiFi.status() != WL_CONNECTED) {
     Serial.print(".");
-    delay(500);
+    delay(900);
   }
   Serial.println("\nWiFi connected, IP: " + WiFi.localIP().toString());
 }
@@ -119,10 +115,6 @@ void setup() {
 
   sensor1.begin(9600, SERIAL_8N1, 16, 17);
   sensor2.begin(9600, SERIAL_8N1, 4, 2);
-
-  pinMode(greenLED, OUTPUT);
-  pinMode(yellowLED, OUTPUT);
-  pinMode(redLED, OUTPUT);
 
   connectWiFi();
   setupTime();

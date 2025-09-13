@@ -5,32 +5,31 @@ The device measures CO₂ levels, shows them locally on the LCD, and publishes J
 
 ## ✨ Features
 
-📟 Real-time CO₂ monitoring with two MH-Z19 sensors
-🖥️ LCD display for local readout
-☁️ MQTT publish (over TLS) to HiveMQ Cloud
-📱 Easy integration with mobile or web dashboards
-📊 JSON payload for interoperability with any IoT platform
+* 📟 Real-time CO₂ monitoring with two MH-Z19 sensors
+* 🖥️ LCD display for local readout
+* ☁️ MQTT publish (over TLS) to HiveMQ Cloud
+* 📱 Easy integration with mobile or web dashboards
+* 📊 JSON payload for interoperability with any IoT platform
 
 ## 🛠️ Hardware Used
 
-      ESP32 DevKit V1
-      2x MH-Z19 (or compatible) CO₂ sensors (UART)
-      1x I²C LCD (1602/1604)
-      Breadboard + jumper wires
+* ESP32 DevKit V1
+* 2x MH-Z19 (or compatible) CO₂ sensors (UART)
+* 1x I²C LCD (1602/1604)
+* Breadboard + jumper wires
 
 ## 📐 Wiring Overview
 
-      CO₂ Sensor 1 → ESP32 UART1 (RX=16, TX=17)
-      CO₂ Sensor 2 → ESP32 UART2 (RX=4, TX=2)
-      LCD → I²C (SDA=GPIO21, SCL=GPIO22 by default)
-      Power: 5V + GND shared across ESP32 and sensors
+* CO₂ Sensor 1 → ESP32 UART1 (RX=16, TX=17)
+* CO₂ Sensor 2 → ESP32 UART2 (RX=4, TX=2)
+* LCD → I²C (SDA=GPIO21, SCL=GPIO22 by default)
+* Power: 5V + GND shared across ESP32 and sensors
 
 ## 💻 Installation & Setup
 
-      Install Arduino IDE 
-      Add ESP32 board support via Board Manager
-
-Install libraries:
+1. Install Arduino IDE 
+2. Add ESP32 board support via Board Manager
+3. Install libraries:
 
       - WiFi.h
       - WiFiClientSecure.h
@@ -38,17 +37,18 @@ Install libraries:
       - ArduinoJson.h
       - LiquidCrystal_I2C.h
 
-Clone this repo:
+4. Clone this repo:
 
       git clone https://github.com/K-IMAD/esp32-co2-monitor.git
       cd esp32-co2-monitor
 
-Open .ino in Arduino IDE, update your:
+5. Open .ino in Arduino IDE, update your:
 
-      Wi-Fi SSID & password
-      MQTT broker, port, username, password
-      Device ID
-      Upload to your ESP32
+      * Wi-Fi SSID & password
+      * MQTT broker, port, username, password
+      * Device ID
+
+6. Upload to your ESP32
 
 ## 📊 Example MQTT JSON Payload
 
@@ -63,8 +63,8 @@ When publishing, the ESP32 sends:
 
 
 Topic:
-
-sensors/esp32-co2-01/co2
+      
+      sensors/esp32-co2-01/co2
 
 ## 📸 System Overview
 

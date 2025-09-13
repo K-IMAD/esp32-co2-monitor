@@ -40,15 +40,16 @@ The device measures CO₂ levels, shows them locally on the LCD, and publishes J
 4. Clone this repo:
 
       git clone https://github.com/K-IMAD/esp32-co2-monitor.git
+   
       cd esp32-co2-monitor
 
-5. Open .ino in Arduino IDE, update your:
+6. Open .ino in Arduino IDE, update your:
 
       * Wi-Fi SSID & password
       * MQTT broker, port, username, password
       * Device ID
 
-6. Upload to your ESP32
+7. Upload to your ESP32
 
 ## 📊 Example MQTT JSON Payload
 

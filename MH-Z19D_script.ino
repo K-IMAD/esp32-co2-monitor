@@ -25,12 +25,15 @@ HardwareSerial sensor2(2); // Use UART2
 
 byte cmd_get_sensor[] = {0xFF, 0x01, 0x86, 0, 0, 0, 0, 0, 0x79};
 
+<<<<<<< HEAD
 // LED pins for ESP32
 int greenLED = 25;
 int yellowLED = 26;
 int redLED = 27;
 
 // MQTT and WiFi clients
+=======
+>>>>>>> 4586963a2be81849b286a49ecf0ac9c9d8206db8
 WiFiClientSecure net;
 PubSubClient mqttClient(net);
 
@@ -81,6 +84,7 @@ void connectWiFi() {
   int attempts = 0;
   while (WiFi.status() != WL_CONNECTED && attempts < 20) {
     Serial.print(".");
+<<<<<<< HEAD
     delay(500);
     attempts++;
   }
@@ -89,6 +93,9 @@ void connectWiFi() {
     Serial.println("\nWiFi connected, IP: " + WiFi.localIP().toString());
   } else {
     Serial.println("\nWiFi connection failed!");
+=======
+    delay(900);
+>>>>>>> 4586963a2be81849b286a49ecf0ac9c9d8206db8
   }
 }
 
@@ -188,6 +195,7 @@ void setup() {
 
   Serial.println("CO2 Monitor Initialized");
 
+<<<<<<< HEAD
   // Initialize sensors with specific pins for ESP32
   sensor1.begin(9600, SERIAL_8N1, 16, 17); // RX=16, TX=17
   sensor2.begin(9600, SERIAL_8N1, 4, 2);   // RX=4, TX=2
@@ -220,6 +228,8 @@ void setup() {
   delay(1000);
 
   // Connect to WiFi
+=======
+>>>>>>> 4586963a2be81849b286a49ecf0ac9c9d8206db8
   connectWiFi();
   
   if (WiFi.status() == WL_CONNECTED) {

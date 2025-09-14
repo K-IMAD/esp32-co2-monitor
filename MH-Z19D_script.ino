@@ -26,11 +26,6 @@ HardwareSerial sensor2(2); // Use UART2
 byte cmd_get_sensor[] = {0xFF, 0x01, 0x86, 0, 0, 0, 0, 0, 0x79};
 
 <<<<<<< HEAD
-// LED pins for ESP32
-int greenLED = 25;
-int yellowLED = 26;
-int redLED = 27;
-
 // MQTT and WiFi clients
 =======
 >>>>>>> 4586963a2be81849b286a49ecf0ac9c9d8206db8
@@ -161,27 +156,6 @@ void reconnectMQTT() {
   }
 }
 
-void updateLEDs(int co2_1, int co2_2) {
-  // Get the highest CO2 reading for LED status
-  int maxCO2 = max(co2_1, co2_2);
-  
-  // Turn off all LEDs first
-  digitalWrite(greenLED, LOW);
-  digitalWrite(yellowLED, LOW);
-  digitalWrite(redLED, LOW);
-  
-  if (maxCO2 < 0) {
-    // Error state - blink red
-    digitalWrite(redLED, millis() % 1000 < 500);
-  } else if (maxCO2 < 800) {
-    digitalWrite(greenLED, HIGH);  // Good air quality
-  } else if (maxCO2 < 1200) {
-    digitalWrite(yellowLED, HIGH); // Moderate air quality
-  } else {
-    digitalWrite(redLED, HIGH);    // Poor air quality
-  }
-}
-
 void setup() {
   Serial.begin(9600);
   Serial.println("\nESP32 CO2 Monitor Starting...");
@@ -199,22 +173,6 @@ void setup() {
   // Initialize sensors with specific pins for ESP32
   sensor1.begin(9600, SERIAL_8N1, 16, 17); // RX=16, TX=17
   sensor2.begin(9600, SERIAL_8N1, 4, 2);   // RX=4, TX=2
-
-  // Initialize LEDs
-  pinMode(greenLED, OUTPUT);
-  pinMode(yellowLED, OUTPUT);
-  pinMode(redLED, OUTPUT);
-  
-  // Test LEDs
-  digitalWrite(greenLED, HIGH);
-  delay(200);
-  digitalWrite(greenLED, LOW);
-  digitalWrite(yellowLED, HIGH);
-  delay(200);
-  digitalWrite(yellowLED, LOW);
-  digitalWrite(redLED, HIGH);
-  delay(200);
-  digitalWrite(redLED, LOW);
 
   // WAIT for sensors to warm up
   Serial.println("Warming up sensors...");
